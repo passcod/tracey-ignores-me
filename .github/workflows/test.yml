@@ -1,0 +1,27 @@
+# r[impl ig.workflow]
+
+name: Do Nothing
+
+on:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  nothing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: extractions/setup-just@v2
+      # r[verify ig.justfile]
+      - run: just run
+
+  tracey:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: cargo-bins/cargo-binstall@main
+      - run: cargo binstall --git https://github.com/bearcove/tracey tracey -y
+      - run: tracey query status
+

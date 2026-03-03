@@ -1,0 +1,17 @@
+@schema {id crate:tracey-config@1, cli tracey}
+
+specs (
+    {
+        name ig
+        include (docs/spec.md)
+        impls (
+            {
+                name main
+                include (
+                    justfile
+                    .github/workflows/*.yml
+                )
+            }
+        )
+    }
+)
